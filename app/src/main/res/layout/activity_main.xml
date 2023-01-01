@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:context="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <!-- <data> 태그의 <variable>은 xml 파일 내 변수를 의미한다. -->
+        <variable
+        name="user"
+        type="com.example.studycode.User" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <!-- 명령형(imperative) -->
+        <Button
+            android:id="@+id/imperative_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- 선언형(declarative) -->
+        <Button
+            android:id="@+id/declarative_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(user.age)}" />
+
+        <ImageView
+            android:id="@+id/view_adult"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_adult"
+            android:visibility="@{user.age > 19 ? View.GONE : View.VISIBLE}"/>
+    </LinearLayout>
+</layout>
